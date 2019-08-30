@@ -1,21 +1,20 @@
 language: python
 python:
-  - "3.6"
+- '3.6'
 sudo: false
 git:
   depth: false
-
 branches:
   except:
   - gh-pages
 install:
-  - pip install -r scripts/requirements.txt
+- pip install -r scripts/requirements.txt
 before_script:
-  - chmod +x ./scripts/*.py
-  - chmod +x ./scripts/deploy/*.sh
+- chmod +x ./scripts/*.py
+- chmod +x ./scripts/deploy/*.sh
 script:
-  - python ./scripts/check_data.py
-  - python ./scripts/build_data.py
+- python ./scripts/check_data.py
+- python ./scripts/build_data.py
 deploy:
 - provider: script
   script: scripts/deploy/deploy_staging.sh
@@ -32,4 +31,6 @@ deploy:
   skip_cleanup: true
   on:
     all_branches: true
-
+before_install:
+- openssl aes-256-cbc -K $encrypted_3d7c2ef3a9a8_key -iv $encrypted_3d7c2ef3a9a8_iv
+  -in keys.tar.enc -out keys.tar -d

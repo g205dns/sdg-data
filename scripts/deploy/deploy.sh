@@ -12,7 +12,7 @@ if [ "$TRAVIS_PULL_REQUEST" != "false" -o "$TRAVIS_BRANCH" != "$SOURCE_BRANCH" ]
 fi
 
 # Keys
-openssl aes-256-cbc -K $encrypted_a78a448ef8e0_key -iv $encrypted_a78a448ef8e0_iv -in scripts/deploy/keys.tar.enc -out scripts/deploy/keys.tar -d
+openssl aes-256-cbc -K $encrypted_3d7c2ef3a9a8_key -iv $encrypted_3d7c2ef3a9a8_iv -in scripts/deploy/keys.tar.enc -out scripts/deploy/keys.tar -d
 tar xvf scripts/deploy/keys.tar -C scripts/deploy/
 rm scripts/deploy/keys.tar
 
